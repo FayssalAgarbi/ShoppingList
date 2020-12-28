@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/my_nav">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/addingFragment">
 
+    <fragment
+        android:id="@+id/addingFragment"
+        android:name="com.training.shoppinglist.AddingFragment"
+        android:label="fragment_adding"
+        tools:layout="@layout/fragment_adding" />
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.training.shoppinglist.ItemListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" />
 </navigation>
