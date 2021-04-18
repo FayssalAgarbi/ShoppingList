@@ -1,4 +1,4 @@
-package com.training.shoppinglist.GroceryItem
+package com.training.shoppinglist.groceryItem
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.training.shoppinglist.GroceryItem.Grocery
-import com.training.shoppinglist.GroceryItem.GroceryDao
-import com.training.shoppinglist.GroceryItem.GroceryViewModel
+import com.training.shoppinglist.groceryItem.Grocery
+import com.training.shoppinglist.groceryItem.GroceryDao
+import com.training.shoppinglist.groceryItem.GroceryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

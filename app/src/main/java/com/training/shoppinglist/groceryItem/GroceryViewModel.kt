@@ -1,4 +1,4 @@
-package com.training.shoppinglist.GroceryItem
+package com.training.shoppinglist.groceryItem
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

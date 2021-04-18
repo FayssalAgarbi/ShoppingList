@@ -3,14 +3,13 @@ package com.training.shoppinglist.persistence
 import android.content.Context
 import androidx.room.Room
 import com.training.shoppinglist.Config
-import com.training.shoppinglist.GroceryItem.GroceryDao
-import com.training.shoppinglist.GroceryItem.GroceryRepository
-import com.training.shoppinglist.GroceryItem.GroceryRepositoryImpl
+import com.training.shoppinglist.groceryItem.GroceryDao
+import com.training.shoppinglist.groceryItem.GroceryRepository
+import com.training.shoppinglist.groceryItem.GroceryRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton

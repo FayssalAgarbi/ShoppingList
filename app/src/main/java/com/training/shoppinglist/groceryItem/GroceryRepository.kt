@@ -1,4 +1,4 @@
-package com.training.shoppinglist.GroceryItem
+package com.training.shoppinglist.groceryItem
 
 import androidx.lifecycle.LiveData
 import javax.inject.Inject
