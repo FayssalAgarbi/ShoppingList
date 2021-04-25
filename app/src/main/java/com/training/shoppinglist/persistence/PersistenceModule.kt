@@ -10,27 +10,23 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Singleton
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class PersistenceModule {
 
     companion object {
-        @Singleton
         @Provides
         fun provideDataBase(@ApplicationContext context: Context): AppDatabase =
-            Room.databaseBuilder(context, AppDatabase::class.java, Config.DATABASE_NAME)
-                .build()
+                Room.databaseBuilder(context, AppDatabase::class.java, Config.DATABASE_NAME)
+                        .build()
 
-        @Singleton
         @Provides
         fun provideDao(db: AppDatabase): GroceryDao = db.groceryDao()
     }
 
     @Binds
-    @Singleton
     abstract fun bindRepository(groceryRepositoryImpl: GroceryRepositoryImpl): GroceryRepository
 }

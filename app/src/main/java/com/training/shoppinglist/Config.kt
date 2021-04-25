@@ -1,5 +1,5 @@
 package com.training.shoppinglist
 
 object Config {
-    val DATABASE_NAME = "GroceryList"
+    const val DATABASE_NAME = "GroceryList"
 }

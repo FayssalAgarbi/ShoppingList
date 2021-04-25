@@ -2,6 +2,7 @@ package com.training.shoppinglist.groceryItem
 
 import androidx.lifecycle.LiveData
 import javax.inject.Inject
+import javax.inject.Singleton
 
 interface GroceryRepository {
 
@@ -10,6 +11,7 @@ interface GroceryRepository {
     suspend fun getAllGroceries(): LiveData<List<Grocery>>
 }
 
+@Singleton
 class GroceryRepositoryImpl @Inject constructor(
     private val groceryDao: GroceryDao
 ) : GroceryRepository {
