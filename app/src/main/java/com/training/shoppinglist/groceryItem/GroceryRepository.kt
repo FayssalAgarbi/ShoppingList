@@ -1,6 +1,6 @@
 package com.training.shoppinglist.groceryItem
 
-import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -8,7 +8,7 @@ interface GroceryRepository {
 
     suspend fun addGroceryItem(item: Grocery)
 
-    suspend fun getAllGroceries(): LiveData<List<Grocery>>
+     fun getAllGroceries(): Flow<List<Grocery>>
 }
 
 @Singleton
@@ -18,5 +18,5 @@ class GroceryRepositoryImpl @Inject constructor(
 
     override suspend fun addGroceryItem(item: Grocery) = groceryDao.addGrocery(item)
 
-    override suspend fun getAllGroceries(): LiveData<List<Grocery>> = groceryDao.selectALL()
+    override fun getAllGroceries(): Flow<List<Grocery>> = groceryDao.selectALL()
 }

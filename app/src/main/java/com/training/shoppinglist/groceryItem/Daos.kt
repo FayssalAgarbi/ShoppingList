@@ -1,13 +1,13 @@
 package com.training.shoppinglist.groceryItem
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GroceryDao {
 
     @Query("SELECT * FROM Grocery")
-    fun selectALL(): LiveData<List<Grocery>>
+    fun selectALL(): Flow<List<Grocery>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addGrocery(item: Grocery)

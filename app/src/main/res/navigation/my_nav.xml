@@ -7,12 +7,16 @@
 
     <fragment
         android:id="@+id/addingFragment"
-        android:name="com.training.shoppinglist.AddingFragment"
+        android:name="com.training.shoppinglist.adding.AddingFragment"
         android:label="fragment_adding"
-        tools:layout="@layout/fragment_adding" />
+        tools:layout="@layout/fragment_adding" >
+        <action
+            android:id="@+id/action_addingFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemListFragment"
-        android:name="com.training.shoppinglist.ItemListFragment"
+        android:name="com.training.shoppinglist.itemList.ItemListFragment"
         android:label="fragment_item_list"
         tools:layout="@layout/fragment_item_list" />
 </navigation>
