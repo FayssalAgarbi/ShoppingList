@@ -3,11 +3,16 @@ package com.training.shoppinglist.itemList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
+import com.training.shoppinglist.R
 import com.training.shoppinglist.databinding.BaseGroceryItemBinding
 import com.training.shoppinglist.groceryItem.Grocery
+import com.training.shoppinglist.groceryItem.GroceryItemState
 
-class ItemListAdapter() : RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>() {
+class ItemListAdapter(
+     val changeColor: (Int) -> Unit
+) : RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>() {
 
     private val itemList = mutableListOf<Grocery>()
 
@@ -23,6 +28,7 @@ class ItemListAdapter() : RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>()
     }
 
     fun update(list: List<Grocery>) {
+        itemList.clear()
         list.map {
             itemList.add(it)
         }
@@ -31,10 +37,18 @@ class ItemListAdapter() : RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>()
 
     override fun getItemCount(): Int = itemList.size
 
-    class ItemViewHolder(private val itemBinding: BaseGroceryItemBinding) :
+    inner class ItemViewHolder(private val itemBinding: BaseGroceryItemBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(currentItem: Grocery) = with(itemBinding) {
             groceryNameTV.text = currentItem.name
+
+            holderCl.background = when(currentItem.groceryItemState){
+                GroceryItemState.UNINITIALIZED -> getDrawable(root.context, R.drawable.background_grocery_uninitialized)
+                GroceryItemState.FOUND -> getDrawable(root.context, R.drawable.background_grocery_found)
+                GroceryItemState.UNSURE -> getDrawable(root.context, R.drawable.background_grocery_unsure)
+                GroceryItemState.UNAVAILABLE -> getDrawable(root.context, R.drawable.background_grocery_unavailable)
+                else -> throw IllegalArgumentException()
+            }
 
             root.setOnLongClickListener {
                 optionsCL.visibility = if (optionsCL.visibility == View.VISIBLE) {
@@ -43,6 +57,9 @@ class ItemListAdapter() : RecyclerView.Adapter<ItemListAdapter.ItemViewHolder>()
                     View.VISIBLE
                 }
                 true
+            }
+            root.setOnClickListener {
+                changeColor(currentItem.id!!)
             }
         }
     }

@@ -74,6 +74,9 @@ dependencies {
     //Mavericks
     implementation 'com.airbnb.android:mavericks:2.2.0'
 
+    //Timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'

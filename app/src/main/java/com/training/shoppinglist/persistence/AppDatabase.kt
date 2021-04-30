@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.training.shoppinglist.groceryItem.Grocery
 import com.training.shoppinglist.groceryItem.GroceryDao
 
-@Database(entities = [Grocery::class], version = 8, exportSchema = false)
+@Database(entities = [Grocery::class], version = 9, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun groceryDao(): GroceryDao

@@ -10,11 +10,11 @@ data class Grocery(
     val id: Int? = null,
     val name: String,
     @ColumnInfo(defaultValue = "UNINITIALIZED")
-    val state: State? = State.UNINITIALIZED,
+    var groceryItemState: GroceryItemState? = GroceryItemState.UNINITIALIZED,
     @ColumnInfo(defaultValue = "none")
     val family: String?
 )
 
-enum class State{
+enum class GroceryItemState{
     UNINITIALIZED, FOUND, UNSURE, UNAVAILABLE
 }

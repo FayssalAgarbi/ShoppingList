@@ -9,6 +9,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 data class ItemListState(
     val itemList: Async<List<Grocery>> = Uninitialized
@@ -23,6 +24,11 @@ class ItemListViewModel @AssistedInject constructor(
         groceryRepository.getAllGroceries()
             .execute(Dispatchers.IO) { copy(itemList = it) }
     }
+
+    fun changeColor(id: Int) = viewModelScope.launch {
+            groceryRepository.changeColor(id)
+        }
+
 
     @AssistedFactory
     interface Factory : AssistedViewModelFactory<ItemListViewModel, ItemListState> {

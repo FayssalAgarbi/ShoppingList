@@ -12,9 +12,12 @@ interface GroceryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addGrocery(item: Grocery)
 
+    @Query("SELECT * FROM Grocery WHERE id = :id")
+    suspend fun fetchGrocery(id: Int): Grocery
+
     @Delete
     fun removeGrocery(item: Grocery)
 
     @Update
-    fun updateGrocery(item: Grocery)
+    suspend fun updateGrocery(item: Grocery)
 }
